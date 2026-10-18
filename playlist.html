@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Clone - Playlist</title>
+  <!-- External CSS: all the styling lives in style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="box">
+        <a href="index.html" class="logo"><span class="logo-dot">♫</span> Spotify Clone</a>
+        <ul class="nav">
+          <li><a href="index.html"><span>🏠</span> Home</a></li>
+          <li><a href="playlist.html" class="active"><span>🎶</span> Playlist</a></li>
+          <li><a href="premium.html"><span>💎</span> Premium</a></li>
+        </ul>
+      </div>
+      <div class="box library">
+        <div class="library-head"><a href="playlist.html">📚 Your Library</a><span>＋</span></div>
+        <ul class="lib-list">
+          <li><a href="playlist.html" class="lib-item"><div class="thumb"><img src="https://picsum.photos/seed/coding-night/120/120" alt="Late Night Coding" loading="lazy"></div><div><strong>Late Night Coding</strong><span>Playlist • Muzammil</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb"><img src="https://picsum.photos/seed/liked-songs/120/120" alt="Liked Songs" loading="lazy"></div><div><strong>Liked Songs</strong><span>Playlist • 128 songs</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb"><img src="https://picsum.photos/seed/chill-vibes/120/120" alt="Chill Vibes" loading="lazy"></div><div><strong>Chill Vibes</strong><span>Playlist • Muzammil</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb"><img src="https://picsum.photos/seed/road-trip/120/120" alt="Road Trip Mix" loading="lazy"></div><div><strong>Road Trip Mix</strong><span>Playlist • Muzammil</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb"><img src="https://picsum.photos/seed/gym-energy/120/120" alt="Gym Energy" loading="lazy"></div><div><strong>Gym Energy</strong><span>Playlist • Muzammil</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb round"><img src="https://picsum.photos/seed/neon-harbor/120/120" alt="Neon Harbor" loading="lazy"></div><div><strong>Neon Harbor</strong><span>Artist</span></div></a></li>
+          <li><a href="playlist.html" class="lib-item"><div class="thumb round"><img src="https://picsum.photos/seed/luna-vale/120/120" alt="Luna Vale" loading="lazy"></div><div><strong>Luna Vale</strong><span>Artist</span></div></a></li>
+        </ul>
+      </div>
+    </aside>
+    <main class="main ">
+
+      <!-- Top bar with buttons -->
+      <div class="topbar">
+        <div class="arrows"><span class="arrow">‹</span><span class="arrow">›</span></div>
+        <div class="top-actions">
+          <a href="premium.html" class="btn btn-white btn-small">Explore Premium</a>
+          <a href="premium.html" class="btn btn-ghost">Sign up</a>
+          <a href="premium.html" class="btn btn-white">Log in</a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="pl-header">
+          <div class="pl-cover"><img src="https://picsum.photos/seed/coding-night/500/500" alt="Late Night Coding cover" loading="lazy"></div>
+          <div>
+            <small>Playlist</small>
+            <h1>Late Night Coding</h1>
+            <p><b>Muzammil</b> • 10 songs, about 35 min</p>
+          </div>
+        </div>
+        <ul class="pl-actions">
+          <li><a href="#" class="big-play">▶</a></li><li>🔀</li><li>♡</li><li>⬇</li><li>⋯</li>
+        </ul>
+        <table class="tracks">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th class="album">Album</th>
+              <th class="time">🕒</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="playing">
+              <td class="num"><span class="n">1</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/neon-rain/100/100" alt="Neon Rain" loading="lazy"></div><div><strong>Neon Rain</strong><span>Neon Harbor</span></div></div></td>
+              <td class="album">Neon Rain</td>
+              <td class="time">3:42</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">2</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/slow-tides/100/100" alt="Slow Tides" loading="lazy"></div><div><strong>Slow Tides</strong><span>Luna Vale</span></div></div></td>
+              <td class="album">Tidal Hours</td>
+              <td class="time">3:15</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">3</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/velvet-sky/100/100" alt="Velvet Sky" loading="lazy"></div><div><strong>Velvet Sky</strong><span>Desert Echo</span></div></div></td>
+              <td class="album">Dust & Gold</td>
+              <td class="time">4:02</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">4</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/city-lights/100/100" alt="City Lights" loading="lazy"></div><div><strong>City Lights</strong><span>Kite Runners</span></div></div></td>
+              <td class="album">Skyline Run</td>
+              <td class="time">2:58</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">5</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/paper-moon/100/100" alt="Paper Moon" loading="lazy"></div><div><strong>Paper Moon</strong><span>Aria Blaze</span></div></div></td>
+              <td class="album">Blaze</td>
+              <td class="time">3:31</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">6</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/echo-valley/100/100" alt="Echo Valley" loading="lazy"></div><div><strong>Echo Valley</strong><span>The Midnight Owls</span></div></div></td>
+              <td class="album">Hollow Hills</td>
+              <td class="time">4:20</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">7</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/golden-hour/100/100" alt="Golden Hour Drive" loading="lazy"></div><div><strong>Golden Hour Drive</strong><span>Desert Echo</span></div></div></td>
+              <td class="album">Dust & Gold</td>
+              <td class="time">3:48</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">8</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/static-dreams/100/100" alt="Static Dreams" loading="lazy"></div><div><strong>Static Dreams</strong><span>Neon Harbor</span></div></div></td>
+              <td class="album">Neon Rain</td>
+              <td class="time">3:05</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">9</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/lantern/100/100" alt="Lantern" loading="lazy"></div><div><strong>Lantern</strong><span>Luna Vale</span></div></div></td>
+              <td class="album">Tidal Hours</td>
+              <td class="time">2:49</td>
+            </tr>
+            <tr>
+              <td class="num"><span class="n">10</span><span class="hover-play">▶</span></td>
+              <td><div class="song"><div class="mini"><img src="https://picsum.photos/seed/midnight-compile/100/100" alt="Midnight Compile" loading="lazy"></div><div><strong>Midnight Compile</strong><span>Kite Runners</span></div></div></td>
+              <td class="album">Skyline Run</td>
+              <td class="time">3:27</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </main>
+    <footer class="player">
+      <div class="np">
+        <div class="thumb"><img src="https://picsum.photos/seed/neon-rain/120/120" alt="Neon Rain" loading="lazy"></div>
+        <div><strong>Neon Rain</strong><span>Neon Harbor</span></div>
+        <span class="heart">♥</span>
+      </div>
+      <div class="controls">
+        <!-- Player buttons are also a list -->
+        <ul class="ctrl-row">
+          <li>🔀</li><li>⏮</li><li class="pp">▶</li><li>⏭</li><li>🔁</li>
+        </ul>
+        <div class="progress"><span>1:24</span><div class="bar"><i style="width:38%"></i></div><span>3:42</span></div>
+      </div>
+      <div class="volume"><span>🎤</span><span>📃</span><span>🔊</span><div class="bar"><i style="width:65%"></i></div></div>
+    </footer>
+  </div>
+</body>
+</html>
