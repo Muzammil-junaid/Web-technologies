@@ -1,11 +1,5 @@
-/* =========================================================
-   Spotify Clone - style.css  (HTML + CSS only, no JavaScript)
-   Shared by: index, search, library, playlist, premium, login
-   ========================================================= */
 
-/* ---------- 1. Reset & variables ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
   --bg: #121212;
   --panel: #181818;
@@ -15,21 +9,16 @@
   --green: #1ed760;
   --green-dark: #1db954;
 }
-
 html, body { height: 100%; }
-
 body {
   background: #000;
   color: var(--text);
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
 }
-
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-
-/* ---------- 2. App layout (sidebar + main + player) ---------- */
 .app {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -38,10 +27,8 @@ ul { list-style: none; }
   height: 100vh;
   padding: 8px;
 }
-
 .sidebar { display: flex; flex-direction: column; gap: 8px; min-height: 0; }
 .box { background: var(--bg); border-radius: 8px; padding: 12px; }
-
 .logo {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 12px 14px; font-size: 20px; font-weight: 800; letter-spacing: -0.5px;
@@ -79,8 +66,6 @@ ul { list-style: none; }
 .lib-item .thumb { width: 48px; height: 48px; border-radius: 4px; flex-shrink: 0; }
 .lib-item strong { display: block; font-size: 15px; }
 .lib-item span { color: var(--muted); font-size: 13px; }
-
-/* ---------- 3. Main area ---------- */
 .main {
   background: linear-gradient(180deg, #2d3a5a 0, var(--bg) 340px);
   border-radius: 8px; overflow-y: auto; min-height: 0;
@@ -88,7 +73,6 @@ ul { list-style: none; }
 .main.green  { background: linear-gradient(180deg, #1f5f3a 0, var(--bg) 340px); }
 .main.purple { background: linear-gradient(180deg, #4a2f7a 0, var(--bg) 340px); }
 .main.plain  { background: linear-gradient(180deg, #333 0, var(--bg) 340px); }
-
 .topbar {
   position: sticky; top: 0; z-index: 5;
   display: flex; justify-content: space-between; align-items: center;
@@ -115,7 +99,6 @@ ul { list-style: none; }
 .btn-outline { background: transparent; color: #fff; border: 1px solid #7c7c7c; }
 .btn-outline:hover { border-color: #fff; }
 .btn-small { padding: 8px 20px; font-size: 14px; }
-
 .content { padding: 8px 24px 32px; }
 .section-head {
   display: flex; justify-content: space-between; align-items: baseline; margin: 28px 0 16px;
@@ -123,8 +106,6 @@ ul { list-style: none; }
 .section-head h2 { font-size: 24px; letter-spacing: -0.4px; }
 .section-head a { color: var(--muted); font-weight: 700; font-size: 14px; }
 .section-head a:hover { text-decoration: underline; }
-
-/* ---------- 4. Cover art (pure CSS gradients) ---------- */
 .c1  { background: linear-gradient(135deg, #ff5f6d, #ffc371); }
 .c2  { background: linear-gradient(135deg, #4776e6, #8e54e9); }
 .c3  { background: linear-gradient(135deg, #11998e, #38ef7d); }
@@ -137,10 +118,7 @@ ul { list-style: none; }
 .c10 { background: linear-gradient(135deg, #56ab2f, #a8e063); }
 .c11 { background: linear-gradient(135deg, #e96443, #904e95); }
 .c12 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-
-/* ---------- 5. Home: quick tiles + cards ---------- */
 .greeting { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin: 12px 0 20px; }
-
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .tile {
   display: flex; align-items: center; gap: 16px;
@@ -151,9 +129,7 @@ ul { list-style: none; }
 .tile .thumb { width: 80px; height: 80px; flex-shrink: 0; }
 .tile .play { right: 16px; bottom: auto; top: 50%; margin-top: -24px; width: 48px; height: 48px; }
 .tile:hover .play { opacity: 1; transform: none; }
-
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 20px; }
-
 .card {
   background: var(--panel); padding: 16px; border-radius: 8px;
   transition: background .3s; display: block;
@@ -167,8 +143,6 @@ ul { list-style: none; }
 .card h3 { font-size: 16px; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card p { color: var(--muted); font-size: 14px; line-height: 1.4;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-
-/* green play button that appears when you hover */
 .play {
   position: absolute; right: 8px; bottom: 8px; width: 48px; height: 48px; border-radius: 50%;
   background: var(--green); color: #000; font-size: 18px; padding-left: 3px;
@@ -177,15 +151,12 @@ ul { list-style: none; }
   transition: opacity .3s, transform .3s; box-shadow: 0 8px 16px rgba(0,0,0,.4);
 }
 .card:hover .play { opacity: 1; transform: none; }
-
-/* ---------- 8. Playlist page ---------- */
 .pl-header { display: flex; align-items: flex-end; gap: 24px; padding: 16px 0 24px; }
 .pl-cover { width: 230px; height: 230px; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,.6); flex-shrink: 0; }
 .pl-header small { font-weight: 700; font-size: 13px; }
 .pl-header h1 { font-size: clamp(36px, 7vw, 84px); letter-spacing: -3px; line-height: 1; margin: 8px 0 20px; }
 .pl-header p { color: var(--muted); }
 .pl-header b { color: #fff; }
-
 .pl-actions { display: flex; align-items: center; gap: 28px; padding: 12px 0 16px; font-size: 28px; color: var(--muted); }
 .big-play {
   width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: #000;
@@ -193,8 +164,6 @@ ul { list-style: none; }
   transition: transform .15s;
 }
 .big-play:hover { transform: scale(1.06); background: #3be477; }
-
-/* the track list is a real <table> */
 .tracks { width: 100%; border-collapse: collapse; color: var(--muted); }
 .tracks th {
   text-align: left; font-weight: 400; font-size: 13px; padding: 8px 16px;
@@ -214,8 +183,6 @@ ul { list-style: none; }
 .song strong { display: block; font-size: 16px; }
 .song span { color: var(--muted); font-size: 14px; }
 .tracks tr.playing .song strong, .tracks tr.playing .num { color: var(--green); }
-
-/* ---------- 9. Bottom player bar ---------- */
 .player {
   grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center;
   padding: 0 16px; background: #000;
@@ -225,7 +192,6 @@ ul { list-style: none; }
 .np strong { display: block; font-size: 14px; }
 .np span { color: var(--muted); font-size: 12px; }
 .np .heart { color: var(--green); margin-left: 8px; font-size: 18px; }
-
 .controls { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .ctrl-row { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 18px; }
 .ctrl-row li:hover { color: #fff; }
@@ -238,11 +204,8 @@ ul { list-style: none; }
 .bar { flex: 1; height: 4px; background: #4d4d4d; border-radius: 2px; }
 .bar i { display: block; height: 100%; background: #fff; border-radius: 2px; }
 .bar:hover i { background: var(--green); }
-
 .volume { display: flex; justify-content: flex-end; align-items: center; gap: 10px; color: var(--muted); }
 .volume .bar { flex: none; width: 100px; }
-
-/* ---------- 10. Premium page ---------- */
 .site-nav {
   position: sticky; top: 0; z-index: 10; background: #000;
   display: flex; align-items: center; justify-content: space-between; padding: 16px 48px;
@@ -251,7 +214,6 @@ ul { list-style: none; }
 .site-nav ul { display: flex; gap: 28px; font-weight: 700; color: var(--muted); }
 .site-nav ul a:hover { color: #fff; }
 .site-nav .right { display: flex; align-items: center; gap: 16px; }
-
 .hero {
   text-align: center; padding: 90px 24px 70px;
   background: linear-gradient(135deg, #5038a0, #af2896 55%, #ff6437);
@@ -259,17 +221,14 @@ ul { list-style: none; }
 .hero h1 { font-size: clamp(36px, 6vw, 72px); letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; }
 .hero p { font-size: 20px; margin-bottom: 32px; }
 .hero small { display: block; margin-top: 16px; opacity: .8; }
-
 .page { background: #000; }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .page h2.center { text-align: center; font-size: 32px; margin: 64px 0 36px; letter-spacing: -1px; }
-
 .perks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .perk { background: #181818; border-radius: 10px; padding: 28px 22px; }
 .perk .icon { font-size: 34px; margin-bottom: 14px; }
 .perk h3 { font-size: 18px; margin-bottom: 8px; }
 .perk p { color: var(--muted); line-height: 1.5; }
-
 .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
 .plan { background: #181818; border-radius: 10px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; border: 2px solid transparent; transition: border-color .2s, transform .2s; }
 .plan:hover { border-color: var(--green); transform: translateY(-4px); }
@@ -279,7 +238,6 @@ ul { list-style: none; }
 .plan .price b { color: #fff; font-size: 28px; }
 .plan ul { color: var(--muted); line-height: 1.8; flex: 1; }
 .plan ul li::before { content: "✓  "; color: var(--green); font-weight: 800; }
-
 .faq { max-width: 780px; margin: 0 auto 80px; }
 .faq details { border-bottom: 1px solid #2a2a2a; padding: 18px 4px; }
 .faq summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; }
@@ -287,13 +245,10 @@ ul { list-style: none; }
 .faq summary::after { content: "+"; font-size: 24px; color: var(--green); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { color: var(--muted); margin-top: 12px; line-height: 1.6; }
-
 footer.site-footer { background: #000; border-top: 1px solid #1f1f1f; padding: 40px 48px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; }
 footer.site-footer h4 { color: #fff; margin-bottom: 12px; }
 footer.site-footer li { margin-bottom: 8px; }
 footer.site-footer a:hover { color: #fff; text-decoration: underline; }
-
-/* ---------- 12. Small screens ---------- */
 @media (max-width: 860px) {
   .app { grid-template-columns: 1fr; }
   .sidebar { display: none; }
@@ -305,8 +260,6 @@ footer.site-footer a:hover { color: #fff; text-decoration: underline; }
   .site-nav { padding: 14px 20px; }
   .site-nav ul { display: none; }
 }
-
-/* ---------- 13. Premium comparison table ---------- */
 .table-wrap { overflow-x: auto; margin-bottom: 20px; border-radius: 10px; }
 .compare { width: 100%; border-collapse: collapse; background: #181818; min-width: 620px; }
 .compare th, .compare td { padding: 16px 18px; text-align: center; border-bottom: 1px solid #2a2a2a; }
@@ -315,12 +268,7 @@ footer.site-footer a:hover { color: #fff; text-decoration: underline; }
 .compare tbody tr:hover { background: #222; }
 .compare .yes { color: var(--green); font-weight: 800; }
 .compare .no { color: #666; }
-
-/* ---------- 14. Pictures (img tags) ---------- */
-/* every picture box clips its image to the rounded corners */
 .thumb, .mini, .pl-cover, .art { overflow: hidden; }
 .art img, .thumb img, .mini img, .pl-cover img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
-/* the colored gradient classes (c1, c2...) stay as a backup colour
-   that shows while a picture is still loading */
