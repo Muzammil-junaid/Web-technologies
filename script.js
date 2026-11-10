@@ -1,16 +1,9 @@
-/* =====================================================
-   Spotify Clone - script.js
-   Works on every page: index, search, playlist, artist,
-   premium and login. Just add:
-   <script src="script.js"></script>  before </body>
-   ===================================================== */
+
 (() => {
   'use strict';
 
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-
-  /* ---------- 1. Song data (used by search + as default queue) ---------- */
   const SONGS = [
     { title: 'Neon Rain',         artist: 'Neon Harbor',       album: 'Neon Rain',    time: '3:42' },
     { title: 'Slow Tides',        artist: 'Luna Vale',         album: 'Tidal Hours',  time: '3:15' },
@@ -37,7 +30,7 @@
     return `https://picsum.photos/seed/${slug(title)}/${size}/${size}`;
   }
 
-  /* ---------- 2. Small helpers ---------- */
+
   function toSeconds(t) {
     const [m, s] = t.split(':').map(Number);
     return (m || 0) * 60 + (s || 0);
@@ -46,7 +39,7 @@
     sec = Math.max(0, Math.floor(sec));
     return Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0');
   }
-  function playerImg(url) {               // always show a 120x120 picture in the player
+  function playerImg(url) {               
     return url.replace(/\/\d+\/\d+$/, '/120/120');
   }
   function store(key, value) {
@@ -55,8 +48,6 @@
   function load(key) {
     try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; }
   }
-
-  /* ---------- 3. Toast (little popup message) ---------- */
   let toastEl, toastTimer;
   function toast(message) {
     if (!toastEl) {
@@ -71,17 +62,16 @@
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
   }
 
-  /* ---------- 4. Player state ---------- */
   const saved = load('spc_player');
   const state = {
     song:    saved ? saved.song : { ...SONGS[0] },
-    pos:     saved ? saved.pos  : 84,           // seconds played
+    pos:     saved ? saved.pos  : 84,           
     playing: saved ? saved.playing : false,
     shuffle: saved ? !!saved.shuffle : false,
     repeat:  saved ? !!saved.repeat : false,
     liked:   saved ? !!saved.liked : true,
   };
-  let queue = SONGS;                            // list that Next / Previous walk through
+  let queue = SONGS;                            
 
   function duration() { return toSeconds(state.song.time); }
   function persist() { store('spc_player', state); }
@@ -99,8 +89,6 @@
     const rows = $$('.tracks tbody tr');
     queue = rows.length ? rows.map(rowToSong) : SONGS;
   }
-
-  /* ---------- 5. Draw the player bar ---------- */
   function render() {
     const player = $('.player');
     if (!player) return;
@@ -129,15 +117,11 @@
       if (icon === '🔀') li.classList.toggle('on', state.shuffle);
       if (icon === '🔁') li.classList.toggle('on', state.repeat);
     });
-
-    // highlight the playing row in any song table
     $$('.tracks tbody tr').forEach(tr => {
       const title = $('.song strong', tr);
       tr.classList.toggle('playing', !!title && title.textContent.trim() === state.song.title);
     });
   }
-
-  /* ---------- 6. Player actions ---------- */
   function playSong(song) {
     state.song = { ...song };
     state.pos = 0;
@@ -171,8 +155,6 @@
     persist();
     render();
   }
-
-  // the "fake" clock: moves the progress bar once per second
   setInterval(() => {
     if (!state.playing) return;
     state.pos += 1;
@@ -182,8 +164,6 @@
     persist();
     render();
   }, 1000);
-
-  /* ---------- 7. Click handling (one listener for the whole page) ---------- */
   document.addEventListener('click', e => {
     const t = e.target;
 
@@ -200,7 +180,6 @@
       return;
     }
 
-    // --- seek bar & volume bar ---
     const bar = t.closest('.bar');
     if (bar) {
       const rect = bar.getBoundingClientRect();
@@ -216,15 +195,12 @@
       return;
     }
 
-    // --- heart in the player ---
     if (t.closest('.np .heart')) {
       state.liked = !state.liked;
       toast(state.liked ? 'Added to Liked Songs 💚' : 'Removed from Liked Songs');
       persist(); render();
       return;
     }
-
-    // --- big green play button on playlist / artist pages ---
     const big = t.closest('.big-play');
     if (big) {
       e.preventDefault();
@@ -233,8 +209,6 @@
       if (inList) togglePlay(); else if (rows.length) playSong(rowToSong(rows[0]));
       return;
     }
-
-    // --- action icons (shuffle, like, download, more) ---
     const act = t.closest('.pl-actions li');
     if (act) {
       const icon = act.textContent.trim();
@@ -253,7 +227,6 @@
       return;
     }
 
-    // --- play button on cards and tiles (home page, artist page) ---
     const playBtn = t.closest('.card .play, .tile .play');
     if (playBtn) {
       e.preventDefault();
@@ -273,7 +246,6 @@
       return;
     }
 
-    // --- click a song row to play it ---
     const row = t.closest('.tracks tbody tr');
     if (row) {
       refreshQueue();
@@ -281,7 +253,6 @@
       return;
     }
 
-    // --- follow button on artist page ---
     const follow = t.closest('.follow-btn');
     if (follow) {
       const on = follow.classList.toggle('following');
@@ -290,7 +261,6 @@
       return;
     }
 
-    // --- category tiles on search page ---
     const cat = t.closest('.cat');
     if (cat) {
       e.preventDefault();
@@ -299,17 +269,14 @@
       return;
     }
 
-    // --- arrows at the top (browser back / forward) ---
     const arrow = t.closest('.arrow');
     if (arrow) {
       arrow.textContent.trim() === '‹' ? history.back() : history.forward();
       return;
     }
 
-    // --- "＋" in library ---
     if (t.closest('.library-head span')) { toast('Create playlist is coming soon ➕'); return; }
 
-    // --- links that go nowhere (href="#") ---
     const dead = t.closest('a[href="#"]');
     if (dead) {
       e.preventDefault();
@@ -317,7 +284,6 @@
     }
   });
 
-  // Spacebar = play / pause (but not while typing)
   document.addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
     if (e.code === 'Space' && !['input', 'textarea', 'button', 'a', 'summary'].includes(tag)) {
@@ -326,7 +292,6 @@
     }
   });
 
-  /* ---------- 8. Home page: greeting ---------- */
   function setupGreeting() {
     const g = $('.greeting');
     if (!g) return;
@@ -336,7 +301,6 @@
     g.textContent = user && user.name ? `${word}, ${user.name}` : word;
   }
 
-  /* ---------- 9. Search page ---------- */
   function setupSearch() {
     const input = $('#searchInput');
     if (!input) return;
@@ -382,7 +346,6 @@
     run();
   }
 
-  /* ---------- 10. Login / Sign up page ---------- */
   function setupAuth() {
     const form = $('#authForm');
     if (!form) return;
@@ -421,7 +384,7 @@
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      setMode(mode);                                   // clears old errors
+      setMode(mode);                                   
       const name = $('#name').value.trim();
       const email = $('#email').value.trim();
       const pass = $('#password').value;
@@ -441,7 +404,6 @@
     setMode(mode);
   }
 
-  /* ---------- 11. Start everything ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     refreshQueue();
     setupGreeting();
@@ -450,3 +412,4 @@
     render();
   });
 })();
+
